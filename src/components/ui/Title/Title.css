@@ -1,0 +1,14 @@
+.title {
+  color: var(--color-text);
+  text-align: start;
+}
+
+.title_large {
+  letter-spacing: -0.5px;
+  font-size: var(--font-size-title-large);
+}
+
+.title_small {
+  letter-spacing: -0.3px;
+  font-size: var(--font-size-title-small);
+}

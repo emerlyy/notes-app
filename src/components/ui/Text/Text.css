@@ -1,0 +1,11 @@
+.text {
+  letter-spacing: -0.2px;
+}
+
+.text_regular {
+  font-size: var(--font-size-text);
+}
+
+.text_small {
+  font-size: var(--font-size-text-small);
+}
