@@ -1,0 +1,10 @@
+.list-card_active {
+  color: var(--color-primary);
+  background-color: var(--color-card-active);
+}
+
+.list-card__chevron {
+  line-height: 0;
+  flex-grow: 1;
+  text-align: end;
+}
