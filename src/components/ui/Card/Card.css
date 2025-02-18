@@ -1,0 +1,33 @@
+.card {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  border-radius: 0.5rem;
+  background: none;
+  border: none;
+  gap: 0.75rem;
+  font-family: inherit;
+  &:hover {
+    background-color: var(--color-card-hover);
+  }
+
+  &.card_active {
+    background-color: var(--color-card-active);
+
+    &:hover {
+    }
+  }
+}
+
+.card_list {
+  width: 100%;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  padding: 12px;
+  gap: 0.5rem;
+}

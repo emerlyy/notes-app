@@ -1,0 +1,16 @@
+.note-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: 8px;
+  transition: background-color 0.1s;
+
+  &:hover {
+    background-color: var(--color-card-hover);
+  }
+}
+
+.note-card_active {
+  background-color: var(--color-card-active);
+}

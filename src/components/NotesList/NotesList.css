@@ -1,0 +1,25 @@
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 16px;
+}
+
+.notes-list__item {
+  border-top: 1px solid var(--color-stroke);
+  transition: border-bottom-color 0.1s;
+
+  &:hover,
+  &:hover + & {
+    border-top-color: transparent;
+  }
+
+  &:has(.note-card_active),
+  &:has(.note-card_active) + & {
+    border-top-color: transparent;
+  }
+
+  &:first-child {
+    border-top: none;
+  }
+}
