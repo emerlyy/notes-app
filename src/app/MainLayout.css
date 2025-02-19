@@ -1,0 +1,23 @@
+.layout {
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 272px 272px 1fr;
+  grid-template-rows: 82px auto;
+  grid-template-areas:
+    "sidebar header header"
+    "sidebar outlet outlet";
+}
+
+.layout__header {
+  grid-area: header;
+}
+
+.layout__sidebar {
+  grid-area: sidebar;
+}
+
+.layout__outlet {
+  grid-area: outlet;
+  overflow: hidden;
+}
