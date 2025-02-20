@@ -1,6 +1,7 @@
 "use client";
 
 import MainLayout from "@/app/MainLayout";
+import ActiveNoteDisplay from "@/components/ActiveNoteDisplay/ActiveNoteDisplay";
 import NotesList from "@/components/NotesList/NotesList";
 import DashboardLayout from "@/components/ui/DashboardLayout/DashboardLayout";
 import { selectFilteredNotes } from "@/store/notesSelectors";
@@ -25,7 +26,7 @@ export default function TagPage() {
     <MainLayout title={title}>
       <DashboardLayout
         leftPanel={<NotesList notes={notes} subtitle={subtitle} />}
-        rightPanel={<></>}
+        rightPanel={<ActiveNoteDisplay />}
       />
     </MainLayout>
   );

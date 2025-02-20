@@ -1,6 +1,7 @@
 "use client";
 
 import MainLayout from "@/app/MainLayout";
+import ActiveNoteDisplay from "@/components/ActiveNoteDisplay/ActiveNoteDisplay";
 import NotesList from "@/components/NotesList/NotesList";
 import DashboardLayout from "@/components/ui/DashboardLayout/DashboardLayout";
 import { selectFilteredNotes } from "@/store/notesSelectors";
@@ -19,7 +20,7 @@ export default function NotePage() {
             subtitle="All your archived notes are stored here. You can restore or delete them anytime."
           />
         }
-        rightPanel={<></>}
+        rightPanel={<ActiveNoteDisplay />}
       />
     </MainLayout>
   );
