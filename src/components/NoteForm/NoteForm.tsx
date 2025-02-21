@@ -48,7 +48,7 @@ const NoteForm = ({
 
   useEffect(() => {
     reset({ title: title, tags: tagsStr, content: content });
-  }, [title, tags, content]);
+  }, [reset, title, tags, content, tagsStr]);
 
   return (
     <NotePageLayout
