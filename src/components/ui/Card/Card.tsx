@@ -9,6 +9,7 @@ type BaseProps = {
   variant?: CardVariant;
   className?: string;
   children: ReactNode;
+  isActive?: boolean;
 };
 
 type CardAsButton = BaseProps &
@@ -34,11 +35,19 @@ export type CardProps = CardAsButton | CardAsLink;
 const Card = (props: CardProps) => {
   if (props.as === "link") {
     // eslint-disable-next-line
-    const { variant = "regular", className, children, as, ...rest } = props;
+    const {
+      variant = "regular",
+      className,
+      children,
+      isActive,
+      as,
+      ...rest
+    } = props;
     return (
       <Link
         className={clsx("card", className, {
           card_list: variant === "list",
+          active: isActive,
         })}
         {...rest}
       >
@@ -47,11 +56,12 @@ const Card = (props: CardProps) => {
     );
   }
 
-  const { variant = "regular", className, children, ...rest } = props;
+  const { variant = "regular", className, children, isActive, ...rest } = props;
   return (
     <button
       className={clsx("card", className, {
         card_list: variant === "list",
+        active: isActive,
       })}
       {...rest}
     >

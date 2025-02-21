@@ -1,6 +1,5 @@
-'use client'
+"use client";
 
-import clsx from "clsx";
 import React, { ButtonHTMLAttributes } from "react";
 import Card from "../Card/Card";
 import Text from "../Text/Text";
@@ -25,7 +24,8 @@ const ListCardButton = ({
     <Card
       as="button"
       variant="list"
-      className={clsx({ "list-card_active": isActive })}
+      className="list-card"
+      isActive={isActive}
       {...rest}
     >
       {icon}
@@ -53,7 +53,8 @@ const ListCardLink = ({ icon, text, href }: ListCardLinkProps) => {
       as="link"
       variant="list"
       href={href}
-      className={clsx({ "list-card_active": isActive })}
+      className="list-card"
+      isActive={isActive}
     >
       {icon}
       <Text weight="medium">{text}</Text>

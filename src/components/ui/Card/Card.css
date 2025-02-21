@@ -11,11 +11,12 @@
   border: none;
   gap: 0.75rem;
   font-family: inherit;
+
   &:hover {
     background-color: var(--color-card-hover);
   }
 
-  &.card_active {
+  &.active {
     background-color: var(--color-card-active);
 
     &:hover {

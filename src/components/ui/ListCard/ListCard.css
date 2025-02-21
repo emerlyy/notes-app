@@ -1,6 +1,7 @@
-.list-card_active {
-  color: var(--color-primary);
-  background-color: var(--color-card-active);
+.list-card {
+  &.active {
+    color: var(--color-primary);
+  }
 }
 
 .list-card__chevron {
