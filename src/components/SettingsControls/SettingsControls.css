@@ -1,0 +1,11 @@
+.settings-controls {
+  padding: 24px;
+}
+
+.settings-controls__title {
+  margin-bottom: 8px;
+}
+
+.settings-controls__subtitle {
+  margin-bottom: 24px;
+}
