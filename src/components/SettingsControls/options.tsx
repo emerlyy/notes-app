@@ -1,4 +1,5 @@
-import { ColorTheme, FontTheme, SettingType } from "@/store/useSettings";
+import { SettingType } from "@/store/useSettings";
+import { ColorTheme, FontTheme } from "@/types";
 import { InputHTMLAttributes, SVGProps } from "react";
 import {
   IconFontMonospace,

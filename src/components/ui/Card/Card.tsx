@@ -34,7 +34,8 @@ export type CardProps = CardAsButton | CardAsLink;
 
 const Card = (props: CardProps) => {
   if (props.as === "link") {
-    // eslint-disable-next-line
+    /* eslint-disable */
+    // property 'as' must be taken for correct Link behavior
     const {
       variant = "regular",
       className,
@@ -43,6 +44,7 @@ const Card = (props: CardProps) => {
       as,
       ...rest
     } = props;
+    /* eslint-enable */
     return (
       <Link
         className={clsx("card", className, {
