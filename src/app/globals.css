@@ -6,7 +6,40 @@
   margin: 0;
 }
 
-html,
+:root {
+  --color-background: #ffffff;
+  --color-stroke: #e0e4ea;
+  --color-badge: var(--color-stroke);
+  --color-card-hover: var(--color-badge);
+  --color-card-active: #f3f5f8;
+  --color-primary: #335cff;
+  --color-primary-hover: #2547d0;
+
+  --color-text-primary: #0e121b;
+  --color-text-secondary: #2b303b;
+  --color-text-light: #717784;
+
+  --color-input-placeholder: var(--color-text-light);
+  --color-input-border: #cacfd8;
+
+  --font-size-title-large: 24px;
+  --font-size-title-small: 16px;
+  --font-size-text: 14px;
+  --font-size-text-small: 12px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --transition-time: 0.1s;
+}
+
+html {
+  height: 100%;
+  color-scheme: dark light;
+}
+
 body {
   height: 100%;
   font-family: "Inter", sans-serif;
@@ -16,6 +49,28 @@ body {
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-time);
+  background: var(--color-background);
+
+  &[data-color-theme="light"] {
+    color-scheme: light;
+  }
+  &[data-color-theme="dark"] {
+    color-scheme: dark;
+  }
+}
+
+body[data-color-theme="dark"] {
+  --color-background: #0e121b;
+  --color-stroke: #232530;
+  --color-badge: #232530;
+  --color-card-hover: var(--color-badge);
+  --color-card-active: var(--color-card-hover);
+
+  --color-text-primary: #fff;
+  --color-text-secondary: #cacfd8;
+
+  --color-input-border: #525866;
 }
 
 #root {
@@ -39,31 +94,6 @@ ul {
   list-style: none;
 }
 
-:root {
-  --color-background: #ffffff;
-  --color-stroke: #e0e4ea;
-  --color-card-hover: var(--color-stroke);
-  --color-card-active: #f3f5f8;
-  --color-badge: var(--color-stroke);
-  --color-primary: #335cff;
-  --color-primary-hover: #2547d0;
-
-  --color-input-placeholder: #717784;
-
-  --color-text: #0e121b;
-  --color-text-light: #717784;
-
-  --font-size-title-large: 24px;
-  --font-size-title-small: 16px;
-  --font-size-text: 14px;
-  --font-size-text-small: 12px;
-
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-}
-
 .weight_regular {
   font-weight: var(--font-weight-regular);
 }
@@ -80,8 +110,12 @@ ul {
   font-weight: var(--font-weight-bold);
 }
 
-.color_text {
-  color: var(--color-text);
+.color_text-primary {
+  color: var(--color-text-primary);
+}
+
+.color_text-secondary {
+  color: var(--color-text-secondary);
 }
 
 .color_light {

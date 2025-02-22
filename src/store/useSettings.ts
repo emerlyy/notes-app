@@ -1,8 +1,7 @@
+import { ColorTheme, FontTheme } from "@/types";
 import { create } from "zustand";
 
 export type SettingType = "color-theme" | "font-theme";
-export type ColorTheme = "dark" | "light" | "system";
-export type FontTheme = "sans-serif" | "serif" | "monospace";
 
 type SettingsState = {
   active: SettingType;

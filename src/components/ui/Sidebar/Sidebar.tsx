@@ -12,6 +12,7 @@ import ListCard from "../ListCard/ListCard";
 import Logo from "../Logo/Logo";
 import Text from "../Text/Text";
 import { IconArchive, IconHome, IconTag } from "../icons";
+
 import "./Sidebar.css";
 
 type Props = { className?: string };

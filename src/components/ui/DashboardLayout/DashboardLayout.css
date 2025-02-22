@@ -16,4 +16,5 @@
 
 .left-panel-wrapper {
   border-right: 1px solid var(--color-stroke);
+  transition: border-color var(--transition-time);
 }

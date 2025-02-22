@@ -57,7 +57,9 @@ const ListCardLink = ({ icon, text, href }: ListCardLinkProps) => {
       isActive={isActive}
     >
       {icon}
-      <Text weight="medium">{text}</Text>
+      <Text weight="medium" color={isActive ? "text-primary" : "inherit"}>
+        {text}
+      </Text>
       {isActive && (
         <span className="list-card__chevron">
           <IconChevronRight width={20} height={20} />

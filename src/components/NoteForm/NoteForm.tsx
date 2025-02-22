@@ -67,7 +67,7 @@ const NoteForm = ({
           />
           <Meta icon={<IconTag width={18} height={18} />} label="Tags">
             <input
-              className="note-form__input text text_regular"
+              className="note-form__input text text_regular color_text-primary"
               placeholder="Add text separated by commas (e.g. Work, Planning)"
               {...register("tags", {
                 pattern: {
@@ -80,11 +80,13 @@ const NoteForm = ({
           </Meta>
           {isArchived && (
             <Meta icon={<IconStatus width={18} height={18} />} label="Status">
-              <Text color="light">Archived</Text>
+              <Text color="text-primary">Archived</Text>
             </Meta>
           )}
           <Meta icon={<IconClock width={18} height={18} />} label="Last Edited">
-            <Text color="light">{lastEditedStr || "Not yet saved"}</Text>
+            <Text color={!!lastEdited ? "text-primary" : "light"}>
+              {lastEditedStr}
+            </Text>
           </Meta>
         </>
       }
@@ -122,7 +124,7 @@ const Meta = ({
     <>
       <div className="note-form__meta">
         {icon}
-        <Text>{label}</Text>
+        <Text color="inherit">{label}</Text>
       </div>
       {children}
     </>

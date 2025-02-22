@@ -1,4 +1,7 @@
 .list-card {
+  color: var(--color-text-secondary);
+  transition: all var(--transition-time);
+
   &.active {
     color: var(--color-primary);
   }

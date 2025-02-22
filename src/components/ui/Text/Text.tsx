@@ -17,7 +17,7 @@ type Props = {
 const Text = ({
   tag = "span",
   size = "regular",
-  color = "text",
+  color = "text-primary",
   weight = "regular",
   className,
   children,

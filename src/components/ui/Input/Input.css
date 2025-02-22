@@ -2,9 +2,11 @@
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
-  border: 1px solid var(--color-stroke);
+  border: 1px solid var(--color-input-border);
   padding: 8px 16px;
   gap: 8px;
+  transition: background-color var(--transition-time),
+    border-color var(--transition-time);
 
   &:focus-within {
     border-color: var(--color-primary);
@@ -34,6 +36,6 @@
   width: 20px;
   aspect-ratio: 1;
   color: var(--color-text-light);
-  
+
   cursor: pointer;
 }

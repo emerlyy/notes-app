@@ -17,7 +17,7 @@ type Props = {
 const Title = ({
   tag = "h2",
   size = "small",
-  color = "text",
+  color = "text-primary",
   weight = "bold",
   className,
   children,

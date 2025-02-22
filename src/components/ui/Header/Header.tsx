@@ -15,7 +15,7 @@ const Header = ({ title, className }: Props) => {
     <header className={clsx("header", className)}>
       <div>
         {title && (
-          <Title size="large" color="text">
+          <Title size="large" color="text-primary">
             {title}
           </Title>
         )}

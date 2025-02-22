@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { ButtonHTMLAttributes } from "react";
 import { Note } from "../../types";
 import { formatDate } from "../../utils/formatDate";
@@ -19,12 +18,11 @@ const NoteCard = ({ title, tags, lastEdited, isActive, ...props }: Props) => {
   return (
     <Card
       variant="regular"
-      className={clsx("note-card", {
-        "note-card_active": isActive,
-      })}
+      className={"note-card"}
+      isActive={isActive}
       {...props}
     >
-      <Title tag="h3" size="small">
+      <Title tag="h3" size="small" weight="semibold">
         {title}
       </Title>
       {tags && (

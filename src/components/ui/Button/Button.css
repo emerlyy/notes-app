@@ -8,7 +8,7 @@
   padding: 12px 16px;
   border-radius: 0.5rem;
   gap: 8px;
-  transition: background-color 0.1s;
+  transition: background-color var(--transition-time);
 
   --button-background-color: var(--color-primary);
   --button-text-color: white;
@@ -27,11 +27,7 @@
 .button_default {
   &:disabled {
     --button-background-color: var(--color-card-hover);
-    --button-text-color: color-mix(
-      in srgb,
-      var(--color-card-hover) 100%,
-      black 20%
-    );
+    --button-text-color: var(--color-input-border);
     border-color: transparent;
   }
 }
@@ -48,20 +44,22 @@
 .button_secondary {
   border: 1px solid var(--color-stroke);
   --button-background-color: var(--color-stroke);
-  --button-text-color: var(--color-text-light);
+  --button-text-color: var(--color-text-secondary);
 
   &:hover {
-    --button-background-color: white;
+    --button-background-color: var(--color-background);
   }
 }
 
 .button_outlined {
-  border: 1px solid var(--color-stroke);
+  justify-content: start;
+  border: 1px solid var(--color-input-border);
   --button-background-color: transparent;
-  --button-text-color: var(--color-text);
+  --button-text-color: var(--color-text-primary);
 
   &:hover {
+    border-color: transparent;
     --button-background-color: var(--color-card-hover);
-    --button-text-color: var(--color-text-light);
+    --button-text-color: var(--color-text-secondary);
   }
 }

@@ -4,7 +4,7 @@
   flex-direction: column;
   gap: 12px;
   border-radius: 8px;
-  transition: background-color 0.1s;
+  transition: background-color var(--transition-time);
 
   &:hover {
     background-color: var(--color-card-hover);

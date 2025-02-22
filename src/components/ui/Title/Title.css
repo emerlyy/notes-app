@@ -1,6 +1,6 @@
 .title {
-  color: var(--color-text);
   text-align: start;
+  transition: color var(--transition-time);
 }
 
 .title_large {
