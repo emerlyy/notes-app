@@ -56,9 +56,35 @@ body {
   &[data-color-theme="light"] {
     color-scheme: light;
   }
-  
+
   &[data-color-theme="dark"] {
     color-scheme: dark;
+    --color-background: #0e121b;
+    --color-stroke: #232530;
+    --color-badge: #232530;
+    --color-card-hover: var(--color-badge);
+    --color-card-active: var(--color-card-hover);
+
+    --color-text-primary: #fff;
+    --color-text-secondary: #cacfd8;
+
+    --color-input-border: #525866;
+  }
+
+  &[data-color-theme="system"] {
+    @media (prefers-color-scheme: dark) {
+      color-scheme: dark;
+      --color-background: #0e121b;
+      --color-stroke: #232530;
+      --color-badge: #232530;
+      --color-card-hover: var(--color-badge);
+      --color-card-active: var(--color-card-hover);
+
+      --color-text-primary: #fff;
+      --color-text-secondary: #cacfd8;
+
+      --color-input-border: #525866;
+    }
   }
 
   &[data-font-theme="sans-serif"] {
@@ -72,19 +98,6 @@ body {
   &[data-font-theme="monospace"] {
     --font: var(--font-source-code-pro);
   }
-}
-
-body[data-color-theme="dark"] {
-  --color-background: #0e121b;
-  --color-stroke: #232530;
-  --color-badge: #232530;
-  --color-card-hover: var(--color-badge);
-  --color-card-active: var(--color-card-hover);
-
-  --color-text-primary: #fff;
-  --color-text-secondary: #cacfd8;
-
-  --color-input-border: #525866;
 }
 
 #root {
