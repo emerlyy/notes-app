@@ -78,10 +78,10 @@ const RadioGroupItem = function <T extends string>({
           </div>
         )}
         <div className="radio__info">
-          <Text tag="h3" size="regular" weight="medium">
+          <Text tag="h3" size="regular" weight="medium" color="text-secondary">
             {label}
           </Text>
-          <Text tag="p" size="small" color="text">
+          <Text tag="p" size="small" color="text-primary">
             {description}
           </Text>
         </div>
