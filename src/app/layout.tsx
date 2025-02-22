@@ -10,15 +10,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  font,
 }: Readonly<{
   children: React.ReactNode;
-  font: string;
 }>) {
   return (
     <html lang="en">
       <ThemeProvider>
-        <body className={`${font}`}>{children}</body>
+        <body>{children}</body>
       </ThemeProvider>
     </html>
   );

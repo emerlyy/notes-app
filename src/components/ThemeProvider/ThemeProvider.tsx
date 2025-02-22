@@ -16,7 +16,7 @@ const fonts: Record<FontTheme, string> = {
 const ThemeProvider = ({
   children,
 }: {
-  children: React.ReactElement<{ font: string }>;
+  children: React.ReactElement<{ className: string }>;
 }) => {
   const theme = useSettings(
     useShallow((state) => ({
@@ -29,7 +29,7 @@ const ThemeProvider = ({
     applyThemePreference({ ...theme });
   }, [theme]);
 
-  return React.cloneElement(children, { font: fonts[theme.fontTheme] });
+  return React.cloneElement(children, { className: fonts[theme.fontTheme] });
 };
 
 export default ThemeProvider;
