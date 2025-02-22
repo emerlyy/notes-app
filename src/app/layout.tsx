@@ -1,14 +1,7 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-
 import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
-import "./globals.css";
+import type { Metadata } from "next";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,13 +10,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  font,
 }: Readonly<{
   children: React.ReactNode;
+  font: string;
 }>) {
   return (
     <html lang="en">
       <ThemeProvider>
-        <body className={`${inter.variable}`}>{children}</body>
+        <body className={`${font}`}>{children}</body>
       </ThemeProvider>
     </html>
   );

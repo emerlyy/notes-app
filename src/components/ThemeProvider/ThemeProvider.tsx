@@ -1,11 +1,23 @@
 "use client";
 
+import { inter, noto_serif, source_code_pro } from "@/app/fonts";
 import { useSettings } from "@/store/useSettings";
+import { FontTheme } from "@/types";
 import { applyThemePreference } from "@/utils/applyThemePreference";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useShallow } from "zustand/shallow";
 
-const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+const fonts: Record<FontTheme, string> = {
+  "sans-serif": inter.variable,
+  serif: noto_serif.variable,
+  monospace: source_code_pro.variable,
+};
+
+const ThemeProvider = ({
+  children,
+}: {
+  children: React.ReactElement<{ font: string }>;
+}) => {
   const theme = useSettings(
     useShallow((state) => ({
       colorTheme: state.color,
@@ -17,7 +29,7 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     applyThemePreference({ ...theme });
   }, [theme]);
 
-  return children;
+  return React.cloneElement(children, { font: fonts[theme.fontTheme] });
 };
 
 export default ThemeProvider;

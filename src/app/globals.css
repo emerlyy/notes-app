@@ -41,8 +41,9 @@ html {
 }
 
 body {
+  --font: var(--font-inter);
+  font-family: var(--font, "Inter"), sans-serif;
   height: 100%;
-  font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
   line-height: 1.2;
@@ -55,8 +56,21 @@ body {
   &[data-color-theme="light"] {
     color-scheme: light;
   }
+  
   &[data-color-theme="dark"] {
     color-scheme: dark;
+  }
+
+  &[data-font-theme="sans-serif"] {
+    --font: var(--font-inter);
+  }
+
+  &[data-font-theme="serif"] {
+    --font: var(--font-noto-serif);
+  }
+
+  &[data-font-theme="monospace"] {
+    --font: var(--font-source-code-pro);
   }
 }
 
