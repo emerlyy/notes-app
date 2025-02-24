@@ -1,4 +1,4 @@
-import { SettingType } from "@/store/useSettings";
+import { SettingType } from "@/store/settingsStore";
 import { ColorTheme, FontTheme } from "@/types";
 import { InputHTMLAttributes, SVGProps } from "react";
 import {

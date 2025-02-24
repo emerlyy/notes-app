@@ -1,6 +1,7 @@
 "use client";
 
-import { SettingType, useSettings } from "@/store/useSettings";
+import { useSettings } from "@/context/SettingsContext";
+import { SettingType } from "@/store/settingsStore";
 import { useShallow } from "zustand/shallow";
 import List from "../ui/List/List";
 import ListCard from "../ui/ListCard/ListCard";

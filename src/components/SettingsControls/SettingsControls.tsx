@@ -1,6 +1,7 @@
 "use client";
 
-import { SettingType, useSettings } from "@/store/useSettings";
+import { useSettings } from "@/context/SettingsContext";
+import { SettingType } from "@/store/settingsStore";
 import { useShallow } from "zustand/shallow";
 import RadioGroup from "../ui/RadioGroup/RadioGroup";
 import Text from "../ui/Text/Text";
@@ -39,6 +40,8 @@ const SettingsControls = () => {
     },
   };
 
+  console.log(settingsHandlers[active].value);
+
   return (
     <div className="settings-controls">
       <Title className="settings-controls__title" size="small" tag="h2">
@@ -50,7 +53,7 @@ const SettingsControls = () => {
       <RadioGroup
         name={active}
         onChange={(value: string) => console.log("change", value)}
-        // @ts-expect-error incompatible value prop if conditional function
+        // @ts-expect-error incompatible value prop if conditional handler
         onSubmit={settingsHandlers[active].onSubmit}
       >
         {SETTINGS_OPTIONS[active].map((item) => (
