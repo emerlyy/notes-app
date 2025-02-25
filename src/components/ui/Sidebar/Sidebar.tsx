@@ -21,7 +21,10 @@ const Sidebar = ({ className }: Props) => {
   const notes = useNotes(useShallow(selectFilteredNotes("all")));
 
   const tags = useMemo(
-    () => Array.from(new Set(notes.flatMap((item) => item.tags || []))),
+    () =>
+      Array.from(new Set(notes.flatMap((item) => item.tags || []))).toSorted(
+        (a, b) => a.localeCompare(b)
+      ),
     [notes]
   );
 
