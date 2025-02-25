@@ -17,8 +17,10 @@ export default function TagPage() {
   const params = useParams<Params>();
 
   const filter = params.tagName;
-  const title = `Notes Tagged: ${filter}`;
-  const subtitle = `All notes with the "${filter}" tag are shown here.`;
+  const tagName = decodeURI(filter);
+
+  const title = `Notes Tagged: ${tagName}`;
+  const subtitle = `All notes with the "${tagName}" tag are shown here.`;
 
   const notes = useNotes(useShallow(selectFilteredNotes(filter)));
 

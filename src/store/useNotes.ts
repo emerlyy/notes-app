@@ -41,7 +41,6 @@ export const useNotes = create<NotesStore>()(
         const { id, note } = generateNote(noteInfo);
         set((state) => {
           state.notes[id] = note;
-          
         });
         get().setActiveNote(id);
       },
