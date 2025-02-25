@@ -102,7 +102,12 @@ const NoteForm = ({
           <Button onClick={handleSubmit(onSubmit)} disabled={!isDirty}>
             Save Note
           </Button>
-          <Button variant="default" color="secondary" disabled={!isDirty}>
+          <Button
+            variant="default"
+            color="secondary"
+            onClick={() => reset()}
+            disabled={!isDirty}
+          >
             Cancel {errors.tags?.message}
           </Button>
         </>
