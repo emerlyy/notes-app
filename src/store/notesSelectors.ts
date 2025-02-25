@@ -19,7 +19,12 @@ type FilterTag = {
   value: string;
 };
 
-type FilterObj = FilterAll | FilterArchived | FilterTag;
+type FilterSearch = {
+  type: "search";
+  value: string;
+};
+
+type FilterObj = FilterAll | FilterArchived | FilterTag | FilterSearch;
 
 type FilterString = "all" | "archived";
 
@@ -52,6 +57,12 @@ export const selectFilteredNotes = (filter: Filter) => (state: NotesStore) => {
     case "tag":
       return notes.filter((item) =>
         item.tags?.map(normalizeString).includes(filterValue)
+      );
+    case "search":
+      return notes.filter(
+        (item) =>
+          item.title.toLowerCase().includes(filterValue) ||
+          item.tags?.some((tag) => tag.toLowerCase().includes(filterValue))
       );
   }
 

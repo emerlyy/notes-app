@@ -1,9 +1,11 @@
 "use client";
+
 import clsx from "clsx";
-import { useRouter } from "next/navigation";
-import { FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
+import { ChangeEvent, FormEvent } from "react";
 import Input from "../ui/Input/Input";
 import { IconSearch } from "../ui/icons";
+import { useSearch } from "./useSearch";
 
 type Props = {
   className?: string;
@@ -17,13 +19,18 @@ interface SearchFormElements extends HTMLFormElement {
 }
 
 const Search = ({ className }: Props) => {
-  const { replace } = useRouter();
+  const searchParams = useSearchParams();
+  const initialValue = searchParams.get("q");
+
+  const [value, setValue, search] = useSearch(initialValue);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
 
   const handleSubmit = (e: FormEvent<SearchFormElements>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const query = form.elements.search.value;
-    replace(`/?${query}`);
+    search(value);
   };
 
   return (
@@ -34,6 +41,8 @@ const Search = ({ className }: Props) => {
         placeholder="Search by title or tags..."
         name="search"
         autoComplete="off"
+        value={value}
+        onChange={handleChange}
       />
     </form>
   );
