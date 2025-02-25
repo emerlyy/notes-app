@@ -22,7 +22,9 @@ export default function TagPage() {
   const title = `Notes Tagged: ${tagName}`;
   const subtitle = `All notes with the "${tagName}" tag are shown here.`;
 
-  const notes = useNotes(useShallow(selectFilteredNotes(filter)));
+  const notes = useNotes(
+    useShallow(selectFilteredNotes({ type: "tag", value: filter }))
+  );
 
   return (
     <MainLayout title={title}>

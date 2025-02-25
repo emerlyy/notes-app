@@ -4,7 +4,28 @@ import { NotesStore } from "./useNotes";
 
 export const selectNotes = (state: NotesStore) => Object.values(state.notes);
 
-export const selectFilteredNotes = (filter?: string) => (state: NotesStore) => {
+type FilterAll = {
+  type: "all";
+  value: never;
+};
+
+type FilterArchived = {
+  type: "archived";
+  value: never;
+};
+
+type FilterTag = {
+  type: "tag";
+  value: string;
+};
+
+type FilterObj = FilterAll | FilterArchived | FilterTag;
+
+type FilterString = "all" | "archived";
+
+type Filter = FilterString | FilterObj;
+
+export const selectFilteredNotes = (filter: Filter) => (state: NotesStore) => {
   const notes: Note[] = [];
   const archivedNotes: Note[] = [];
 
@@ -14,14 +35,25 @@ export const selectFilteredNotes = (filter?: string) => (state: NotesStore) => {
 
   if (!filter) return notes;
 
-  switch (filter) {
+  let filterType: string;
+  let filterValue: string;
+  if (typeof filter === "string") {
+    filterType = filter;
+  } else {
+    filterType = filter.type;
+    filterValue = filter.value;
+  }
+
+  switch (filterType) {
     case "all":
       return notes;
     case "archived":
       return archivedNotes;
+    case "tag":
+      return notes.filter((item) =>
+        item.tags?.map(normalizeString).includes(filterValue)
+      );
   }
 
-  return notes.filter((item) =>
-    item.tags?.map(normalizeString).includes(filter)
-  );
+  return notes;
 };
