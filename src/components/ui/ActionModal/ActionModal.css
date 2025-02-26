@@ -16,6 +16,7 @@
   background-color: var(--color-card-active);
   transition: border-color var(--transition-time),
     background-color var(--transition-time);
+  color: var(--color-text-primary);
 }
 
 .action-modal__title {

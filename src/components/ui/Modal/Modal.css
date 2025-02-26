@@ -2,8 +2,9 @@
   width: 100%;
   max-width: 440px;
   border-radius: 12px;
-  background: var(--color-background);
+  background: var(--color-background-modal);
   margin-inline: 16px;
   max-height: 90svh;
   overflow: auto;
+  border: 1px solid var(--color-stroke);
 }

@@ -24,6 +24,8 @@
   --color-input-placeholder: var(--color-text-light);
   --color-input-border: #cacfd8;
 
+  --color-background-modal: var(--color-background);
+
   --font-size-title-large: 24px;
   --font-size-title-small: 16px;
   --font-size-text: 14px;
@@ -71,6 +73,12 @@ body {
     --color-text-secondary: #cacfd8;
 
     --color-input-border: #525866;
+
+    --color-background-modal: color-mix(
+      in srgb,
+      var(--color-background) 75%,
+      var(--color-card-active)
+    );
   }
 
   &[data-color-theme="system"] {
