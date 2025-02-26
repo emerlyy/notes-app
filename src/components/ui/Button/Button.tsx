@@ -3,7 +3,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 import "./Button.css";
 
 type ButtonVariant = "default" | "outlined";
-type ButtonColor = "primary" | "secondary";
+type ButtonColor = "primary" | "secondary" | "warning";
 
 export type ButtonProps = {
   variant?: ButtonVariant;

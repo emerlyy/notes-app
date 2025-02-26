@@ -51,6 +51,15 @@
   }
 }
 
+.button_warning {
+  --button-background-color: var(--color-warning);
+  --button-text-color: white;
+
+  &:hover {
+    --button-background-color: var(--color-warning-hover);
+  }
+}
+
 .button_outlined {
   justify-content: start;
   border: 1px solid var(--color-input-border);
