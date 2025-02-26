@@ -1,0 +1,9 @@
+.modal {
+  width: 100%;
+  max-width: 440px;
+  border-radius: 12px;
+  background: var(--color-background);
+  margin-inline: 16px;
+  max-height: 90svh;
+  overflow: auto;
+}

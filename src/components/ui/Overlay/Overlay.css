@@ -1,0 +1,13 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #0e121b80;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 40;
+}
+
+.noscroll {
+  overflow: hidden;
+}
