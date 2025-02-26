@@ -25,7 +25,7 @@ const NoteActions = ({
         variant="outlined"
         onClick={onAction}
       >
-        {React.cloneElement(actionIcon, { width: 20, height: 20 })}{" "}
+        {React.cloneElement(actionIcon, { width: 20, height: 20 })}
         {actionLabel}
       </Button>
       <Button
