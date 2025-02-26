@@ -7,7 +7,8 @@ import NoteActions from "../NoteActions/NoteActions";
 import NoteForm, { NoteFormSubmitHandler } from "../NoteForm/NoteForm";
 import DashboardLayout from "../ui/DashboardLayout/DashboardLayout";
 import { IconArchive, IconRestore } from "../ui/icons";
-import { useActions } from "./useActions";
+import { useNoteActions } from "./useNoteActions";
+import { useNoteConfirmModals } from "./useNoteConfirmModals";
 
 const emptyNote: Omit<Note, "id"> = {
   title: "",
@@ -52,8 +53,9 @@ const ActiveNoteDisplay = () => {
     setCreateMode(false);
   };
 
-  const { deleteActive: onDelete, toggleActiveArchive: onAction } =
-    useActions();
+  const { deleteActive, toggleActiveArchive } = useNoteActions();
+  const { confirmArchive, confirmDelete, confirmRestore } =
+    useNoteConfirmModals();
 
   if (!createMode && !activeNote) {
     return <div></div>;
@@ -62,6 +64,19 @@ const ActiveNoteDisplay = () => {
   const { title, content, isArchived, lastEdited, tags } = createMode
     ? emptyNote
     : activeNote!;
+
+  const onAction = async () => {
+    const confirmed = await (isArchived ? confirmRestore : confirmArchive)();
+    if (confirmed) {
+      toggleActiveArchive();
+    }
+  };
+
+  const onDelete = async () => {
+    if (await confirmDelete()) {
+      deleteActive();
+    }
+  };
 
   return (
     <DashboardLayout

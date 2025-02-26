@@ -3,6 +3,7 @@ import SettingsProvider from "@/context/SettingsContext";
 import { ColorTheme, FontTheme } from "@/types";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
+import ConfirmationModalProvider from "@/context/ConfirmationModalContext";
 
 import "./globals.css";
 
@@ -27,9 +28,11 @@ export default async function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <SettingsProvider color={cookieColor} font={cookieFont}>
         <FontProvider>
-          <body data-font-theme={cookieFont} data-color-theme={cookieColor}>
-            {children}
-          </body>
+          <ConfirmationModalProvider>
+            <body data-font-theme={cookieFont} data-color-theme={cookieColor}>
+              {children}
+            </body>
+          </ConfirmationModalProvider>
         </FontProvider>
       </SettingsProvider>
     </html>

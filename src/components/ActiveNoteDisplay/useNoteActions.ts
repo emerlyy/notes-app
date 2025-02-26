@@ -1,7 +1,7 @@
 import { useNotes } from "@/store/useNotes";
 import { useShallow } from "zustand/shallow";
 
-export const useActions = () => {
+export const useNoteActions = () => {
   const { activeNote, removeNote, updateNote } = useNotes(
     useShallow((state) => ({
       activeNote: state.activeNote ? state.notes[state.activeNote] : null,
