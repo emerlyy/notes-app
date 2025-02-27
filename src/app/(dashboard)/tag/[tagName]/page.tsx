@@ -1,6 +1,5 @@
 "use client";
 
-import MainLayout from "@/app/MainLayout";
 import ActiveNoteDisplay from "@/components/ActiveNoteDisplay/ActiveNoteDisplay";
 import NotesList from "@/components/NotesList/NotesList";
 import DashboardLayout from "@/components/ui/DashboardLayout/DashboardLayout";
@@ -19,7 +18,6 @@ export default function TagPage() {
   const filter = params.tagName;
   const tagName = decodeURI(filter);
 
-  const title = `Notes Tagged: ${tagName}`;
   const subtitle = `All notes with the "${tagName}" tag are shown here.`;
 
   const notes = useNotes(
@@ -27,11 +25,9 @@ export default function TagPage() {
   );
 
   return (
-    <MainLayout title={title}>
-      <DashboardLayout
-        leftPanel={<NotesList notes={notes} subtitle={subtitle} />}
-        rightPanel={<ActiveNoteDisplay />}
-      />
-    </MainLayout>
+    <DashboardLayout
+      leftPanel={<NotesList notes={notes} subtitle={subtitle} />}
+      rightPanel={<ActiveNoteDisplay />}
+    />
   );
 }

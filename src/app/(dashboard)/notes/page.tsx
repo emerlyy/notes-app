@@ -1,6 +1,5 @@
 "use client";
 
-import MainLayout from "@/app/MainLayout";
 import ActiveNoteDisplay from "@/components/ActiveNoteDisplay/ActiveNoteDisplay";
 import NotesList from "@/components/NotesList/NotesList";
 import DashboardLayout from "@/components/ui/DashboardLayout/DashboardLayout";
@@ -12,11 +11,9 @@ export default function NotePage() {
   const notes = useNotes(useShallow(selectFilteredNotes("all")));
 
   return (
-    <MainLayout title="All Notes">
-      <DashboardLayout
-        leftPanel={<NotesList notes={notes} />}
-        rightPanel={<ActiveNoteDisplay />}
-      />
-    </MainLayout>
+    <DashboardLayout
+      leftPanel={<NotesList notes={notes} />}
+      rightPanel={<ActiveNoteDisplay />}
+    />
   );
 }
