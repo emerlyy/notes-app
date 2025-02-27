@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import Search from "../../Search/Search";
 import { IconSettings } from "../icons";
 import Title from "../Title/Title";
@@ -12,16 +12,21 @@ type Props = {
   className?: string;
 };
 
-const getTitle = (path: string, extra?: string) => {
-  switch (path) {
+const getTitle = (pathname: string, search?: string) => {
+  const pathSegments = pathname.split("/").filter((segment) => segment !== "");
+
+  switch (pathSegments[0]) {
     case "notes":
       return "All Notes";
     case "archived":
       return "Archived Notes";
     case "tag":
-      return `Notes Tagged: ${extra}`;
+      return `Notes Tagged: ${pathSegments[1]}`;
     case "settings":
       return "Settings";
+    case "search": {
+      return `Showing results for: ${search}`;
+    }
     default:
       return "";
   }
@@ -29,8 +34,9 @@ const getTitle = (path: string, extra?: string) => {
 
 const Header = ({ className }: Props) => {
   const pathname = usePathname();
-  const pathSegments = pathname.split("/").filter((segment) => segment !== "");
-  const title = getTitle(pathSegments[0], pathSegments[1]);
+  const searchParams = useSearchParams();
+  const search = searchParams.get("q") || "";
+  const title = getTitle(pathname, search);
 
   return (
     <header className={clsx("header", className)}>
